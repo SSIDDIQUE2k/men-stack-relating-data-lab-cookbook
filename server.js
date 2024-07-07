@@ -8,6 +8,8 @@ const morgan = require('morgan');
 const session = require('express-session');
 
 const authController = require('./controllers/auth.js');
+const foodsController = require('./controllers/foods.js'); //added foods controller
+
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -43,6 +45,7 @@ app.get('/vip-lounge', (req, res) => {
 });
 
 app.use('/auth', authController);
+app.use('/users/:userId/foods',foodsController); //added foods controller 
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
