@@ -39,7 +39,8 @@ app.get('/', (req, res) => {
     user: req.session.user,
   });
 });
-
+app.get('/users/:userId/foods/new', (req, res) => {
+});
 app.get('/vip-lounge', (req, res) => {
   if (req.session.user) {
     res.send(`Welcome to the party ${req.session.user.username}.`);
